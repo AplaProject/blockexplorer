@@ -15,7 +15,7 @@ from ...models.genesis.utils import get_by_id_or_first_genesis_db_id
 
 from ...datatables import DataTablesExt
 
-from ..utils import ts_to_fmt_time
+from ...utils import ts_to_fmt_time
 
 from genesis_block_chain.parser.common_parse_data_full import parse_block
 
@@ -78,7 +78,7 @@ def transactions_by_block(id, block_id):
 @app.route('/dt/genesis/database/<int:id>/transactions_by_block/<int:block_id>')
 def dt_transactions_by_block(id, block_id):
     model = TransactionsStatus
-    column_ids = ['time', 'wallet_id', 'ecosystem',
+    column_ids = ['time', 'key_id', 'ecosystem',
                   'hash', 'type', 'error']
     columns = [getattr(model, col_id) for col_id in column_ids]
     dt_columns = [ColumnDT(m) for m in columns]
