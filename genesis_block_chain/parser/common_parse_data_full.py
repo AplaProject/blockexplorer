@@ -168,6 +168,8 @@ def get_from_nested_dict(src_dict, *args):
     for arg in args:
         try:
             value = value[arg]
+        except TypeError as e:
+            return
         except KeyError as e:
             return
     return value
@@ -180,6 +182,8 @@ def set_if_not_empty(dst_dict, key, value):
 def parse_contract_transaction(p, data):
     try:
         unp = msgpack.unpackb(data, raw=False)
+    except UnicodeDecodeError as e:
+        unp = {}
     except ExtraData as e:
         raise e
     except Exception as e:
