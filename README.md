@@ -1,4 +1,4 @@
-# Genesis Block Explorer
+# Apla Block Explorer
 
 ## How to run
 
