@@ -30,3 +30,5 @@ eventlet
 socketIO-client
 diskcache
 tcpping
+
+pyjwt>=1.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
